@@ -1,0 +1,38 @@
+<!doctype html>
+<title>To Do List</title>
+<form action="/submit" method=post>
+    <dl>
+       <dt>Item:
+       <dd><input type=text size=30 name=task>
+       <dt>Email:
+       <dd><input name=email type=text size=30>
+	   <dt>Priority:
+	   <dd><select name=priority>
+				<option value=High>High</option>
+				<option value=Medium>Medium</option>
+				<option value=Low>Low</option>
+			</select>
+			<br/>
+			<br/>
+       <input type=submit name=Add value="Add To Do Item">	   
+    </dl>
+</form> 
+
+<form action="/clear" method=post>
+	<input type=submit name=Clear value="Clear">
+	</form>
+<br/>
+<table style="border: solid 1px black">
+	<tr>
+		<th>Item</th>
+		<th>Email</th>
+		<th>Priority</th>
+	</tr>
+{%- for row in items %}
+  <tr>  
+    <td style="border: solid 1px black">{{ row[0] }}</td>  
+	<td style="border: solid 1px black">{{ row[1] }}</td>  
+	<td style="border: solid 1px black">{{ row[2]}}</td>  
+  </tr>
+{%- endfor %}
+</table>
